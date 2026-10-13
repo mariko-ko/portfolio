@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【ストーリー】LINEカレンダーアプリのBX設計の舞台裏 - Mariko Ko Portfolio</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <!-- note風表示用CSS -->
+  <link rel="stylesheet" href="../../css/note-story.css">
+</head>
+
+<body data-modal-enabled="true" class="has-sticky-header">
+
+  <!-- Sticky Header -->
+  <div class="sticky-header">
+    <div class="sticky-header-inner">
+      <a href="../../index.html" class="back-link">← Back to Index</a>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- note風 記事アーカイブ型コンテナ -->
+    <article class="note-article">
+
+      <!-- 記事ヘッダー -->
+      <header class="note-header">
+        <div class="note-eyecatch">
+          <img src="../../images/story/story_linecalapp-bx-1_poster02.png" alt="LINEカレンダーアプリ BX" class="eyecatch-img"
+            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%\' height=\'300\' style=\'background:%23F3F4F6\'><text x=\'50%\' y=\'50%\' fill=\'%239CA3AF\' text-anchor=\'middle\' font-family=\'sans-serif\'>Cover Image</text></svg>'">
+        </div>
+        <h1 class="note-title">【後編】本当の困難はここからだった。世界観の崩壊を防ぎ、ステークホルダーと合意形成した話〜LINEカレンダーアプリのBX設計の舞台裏〜</h1>
+
+        <div class="note-author">
+          <div class="author-info">
+            <span class="author-name">LINEヤフー　Designer　河 満里子</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- 記事本文 -->
+      <div class="note-body">
+
+        <!-- 世界観の崩壊を防ぐ——動画クリエイティブの自主的な巻き取りと戦略的ディレクション -->
+        <section class="story-chapter">
+          <h2 class="chapter-title">世界観の崩壊を防ぐ——動画クリエイティブの自主的な巻き取りと戦略的ディレクション</h2>
+          <p>ストアのデザインを定義している最中、外部出稿の企画担当者からプロモーション動画制作の話が持ち上がった。<br>
+            「制作会社に外注したいから、構成の骨子を確認してくれないか？」</p>
+          <p>しかし、上がってきた構成案を見て、私は強い危機感を覚えた。<br>
+            そこに描かれていたのは、AIで生成したような“野良ブランド”的な世界観だった。メッセージの軸も、POやプロダクトデザイナーを交えて綿密に検討しているコアバリューとは乖離していたのだ。</p>
+          <p>
+            もちろん、それ自体は無理もないことだった。企画担当者は複数プロダクトのプロモーションを横断し、契約を取りまとめる立場だ。何より、当時のデザイナー側としても「このデザインや訴求メッセージでいこう」と提示できる確定デザインの定義途中の状態だったからだ。
+          </p>
+          <p>とはいえ、チャネルによってデザインやメッセージがチグハグになってしまった場合、動画を見たユーザーがストアやLPに流れ着いたとき、</p>
+          <p>——「あれ？ さっき見た動画とこのアプリ、本当に同じものなのだろうか？」</p>
+          <p>そんな致命的な違和感を抱かせるわけにはいかない。ブランドの体験価値の一貫性を損なわせるわけにはいかないのだ。<br>
+            私は即座に、「動画の絵コンテ制作、私にやらせていただけないでしょうか？」と手を挙げた。</p>
+          <br>
+
+          <h3 class="chapter-title">ストーリーラインの論理的整合性を貫く</h3>
+          <p>動画は、異なる層にアプローチする2パターンを制作することにした。</p>
+          <ol>
+            <li><strong>LINEでつながる幅広い年齢層の男女に向けた構成</strong> × オーソドックスな訴求</li>
+            <li><strong>コアとなる20代幹事属性の女性に向けた構成</strong> × 課題提起型の訴求</li>
+          </ol>
+          <div class="note-figure-wrapper">
+            <img src="../../images/story/story_linecalapp-bx-05.png" alt="ストアクリエイティブの説明" class="article-single-img">
+          </div>
+          <p>特に後者の「課題提起型の構成」には、こだわり抜いた。<br>
+            ——「ユーザーの本当のペイン（悩み）は何か？」から始まり、「それをどう解決するのかというソリューションの提案」へと繋げるストーリーラインである。</p>
+          <p>ここで最も重要視したのは、「ストーリーの論理的整合性」だった。</p>
+          <p>
+            我々にしか提供できない独自のソリューションは、「LINEの友だちとつながることで、予定の共有や管理が圧倒的にスムーズになる」という点に尽きる。したがって、導入で提示するペインも、そのソリューションと完全に辻褄が合うものでなければならない。
+          </p>
+          <p>
+            もしここでペインを「予定をついつい忘れてしまう」にしてしまうと、解決策は単なる「リマインダーやプッシュ通知」になってしまい、他社製カレンダーアプリでも代替可能な機能訴求に落ちてしまう。それでは、LINEの友だちとつながるというこのプロダクト独自の存在意義（他社との決定的な差別化）に繋がらなくなってしまうのだ。
+          </p>
+          <p>この一貫したストーリーラインにこだわり抜き、課題提起となるペインのコピーを極限まで研ぎ澄ませた。さらに、どの言葉が最もターゲットの共感を呼ぶのか社内アンケート調査を実施し、生のデータをベースに細部まで磨き上げた。
+          </p>
+          <p>結果——<br>
+            <strong>「あちこちから降ってくる予定、整理しきれるわけがない」</strong><br>
+            だから、<br>
+            <strong>「友だちとの予定も、グループとの予定も、家族との予定も、私だけの予定も、全部まとめよう」</strong>
+          </p>
+          <p>これによって、LINEカレンダーだからこそ提供できる独自価値へと繋がるストーリーラインとして結実したのだ。</p>
+          <p>絵コンテの作成後は、映像を形にするためのビジュアル素材の制作、BGMのテイストの提言に至るまで、制作会社との緻密な連携と監修を一貫して完遂した。</p>
+          <div class="note-figure-wrapper">
+            <img src="../../images/story/story_linecalapp-bx-06.png" alt="ストアクリエイティブの説明" class="article-single-img">
+          </div>
+        </section>
+
+        <!-- LP制作における経営層の要望整理と技術的制約 -->
+        <section class="story-chapter">
+          <h2 class="chapter-title">LP制作における経営層の要望整理と技術的制約</h2>
+          <p>最後に待ち受けていたのは、プロダクトのLP（ランディングページ）制作だった。しかし、ここにも大きな困難が待ち受けていた。というか、本当の意味での「混沌」はここからだった——。</p>
+          <p>経営層から下りてきたオーダーは、次のようなものだった。
+            ——「LINEアプリ内のミニアプリ版カレンダーと、今回の新規単体アプリ版を統合したLPにしてほしい。2週間後の会議でプレゼンできるよう、動く形にして用意してくれ」</p>
+          <p>
+            補足すると、LINEアプリ内のミニアプリと、今回私たちが立ち上げている単体アプリ版は、社内でも開発組織が全く異なる別のプロダクトである。他組織との調整を含めれば、情報設計（IA）の確定だけでも合意形成が必要であり、時間がかかる。スケジュール的にも物理的ハードルが極めて高かった。
+          </p>
+          <p>
+            経営層の真意にあるのは「シナジーの最大化」だ。それは理解できる。しかし、LPで2つのプロダクトを無理に同等に扱ってしまえば、新しくリリースするアプリ単体版のメッセージが弱まり、最も重要なコンバージョンである「アプリのダウンロード（CVR）」が阻害されるリスクがあった。
+          </p>
+          <p>とはいえ、オーダーに対し「統合すると、本来の目的であるアプリ単体版を最も強く訴求することが難しくなる」と説明する機会は得られない。機会があったとしても、具体化して見せなければ、何が問題なのか納得できないはずだ。
+          </p>
+          <p><strong>「まずは経営層の要望に忠実に則ったLPを、一度本気でカタチにしてみよう」</strong></p>
+          <p>私はあえて経営層のオーダー通りの構成で、動くプロトタイプを期限内に制作し、会議の場で提示した。</p>
+          <div class="note-figure-wrapper">
+            <img src="../../images/story/story_linecalapp-bx-07.png" alt="ストアクリエイティブの説明" class="article-single-img">
+            <p class="article-img-caption">初期案のLINE内のミニアプリ版＋単体アプリ版の統合型LP</p>
+            <p>
+              結果は一目瞭然だった。実物の画面を目の当たりにした経営層自身から、「これでは肝心のアプリの情報がシンプルに入ってこない」という言葉が漏れたのだ。具体的な形にしたからこそ、「これはなしだ」という共通認識が生まれた瞬間だった。
+            </p>
+            <p>最終的には、本来の主役である「単体アプリ版」を前面に据え、ミニアプリ版カレンダーは補足として寄り添わせるという、CVRと両プロダクトの訴求バランスが両立する塩梅へと着地させた。</p>
+            <div class="note-figure-wrapper">
+              <img src="../../images/story/story_linecalapp-bx-08.png" alt="ストアクリエイティブの説明" class="article-single-img">
+              <p class="article-img-caption">決定案のシンプルな構成の単体アプリ版LP</p>
+              <p>
+                <br>
+
+
+              <h3 class="chapter-title">プラットフォームの制約をハックする</h3>
+              <p>もう一つの大きな関門となったのが、社内で開発されたページビルダー「LandPress」というプラットフォーム（以下、PF）の存在だった。</p>
+              <p>LINEのサービスでシンプルなLPを立ち上げる際、このPFを使用することが条件だったが、これがデザイナー泣かせの代物だった。</p>
+              <p>
+                まず、使用できるデザイン用のUIコンポーネントがあらかじめ固定されており、今回のLPデザインに最適なパーツが存在しない。かといって、カスタムコードで独自にHTML/CSSを実装しようとすれば、PFの仕様としてページ全体にデフォルトで適用されるCSSやScriptとコンフリクトを起こしたり、将来的なPF側の仕様変更で不具合を起こすリスクを孕んでいた。
+              </p>
+              <p>だからこそ私は、PFのUIコンポーネントごとのレスポンシブ仕様や挙動を調査した。表現の制約の中で最も適合するパーツを決め、「制限があること」を前提とした上で、ビジュアルデザインのクオリティを追求した。
+              </p>
+              <p>期限が刻一刻と迫る極限の状況の中、</p>
+              <ul>
+                <li><strong>「「経営層の要求をあえて一度カタチにして、課題に気づいてもらうファシリテーション」</strong></li>
+                <li><strong>「制限の厳しいPF仕様をクリアしつつ、関係者全員が納得するデザインに着地」</strong></li>
+              </ul>
+              <p>この二重の関門を、私はなんとか突破した。</p>
+              <p>完成したLPはプロダクトチームの（特にコアターゲットに近い若い女性）メンバーから好評だ。10月中旬の記者発表会にて大体的に披露されることになっている。</p>
+
+        </section>
+
+        <!-- 結び -->
+        <section class="story-chapter">
+          <h2 class="chapter-title">結び</h2>
+          <p>
+            コンセプトの言語化というゼロからの土台作りから、ストアデザインの定義、自ら描き起こしたイラストアセットの展開、徹底的にロジックを詰めた動画の絵コンテディレクション、そしてステークホルダーを巻き込んだLPの構造再設計まで。
+          </p>
+          <p>
+            これらの行動の根本にあるのは、「ユーザー体験の一貫性を保ち、プロダクトの本質的な提供価値を正しく定義して、すべてのチャネルでの表現の辻褄を合わせる」ということへの、私個人の強いこだわりだ。そして何より、プロダクトデザインチームが心血を注いで作り上げたアプリだからこそ、その価値を一人でも多くのユーザーへ届け、ダウンロードを最大化したいという強い想いがあったからに他ならない。
+          </p>
+          <p>
+            どれほど優れたプロダクトを作っても、手前の動画やストア、LPでのコミュニケーションにわずかでも矛盾や歪みがあれば、ユーザーの体験価値は途切れてしまう。
+          </p>
+          <p>プロダクトが持つ本当の価値を、途切れさせることなく真っ直ぐにユーザーへ届けること——。<br>
+            その「ユーザーの体験文脈に表現を合致させる」ことこそが、ものづくりにおける私の一番のこだわりなのだ。</p>
+        </section>
+
+
+        <hr class="note-divider">
+
+        <!-- 前の記事へ戻るナビゲーションカード -->
+        <nav class="prev-article-nav" aria-label="記事ナビゲーション">
+          <a href="story_linecalapp-bx-1.html" class="prev-article-card">
+            <div class="prev-article-arrow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+            </div>
+            <div class="prev-article-content">
+              <span class="prev-article-label">PREV</span>
+              <span class="prev-article-title">【前編】LINEカレンダーアプリのBX設計の舞台裏</span>
+            </div>
+          </a>
+        </nav>
+
+      </div>
+
+      <div class="page-footer">
+        <a href="../../index.html" class="btn-primary">Indexに戻る</a>
+      </div>
+
+    </article>
+
+  </div>
+
+  <script src="../../js/lightbox.js"></script>
+</body>
+
+</html>

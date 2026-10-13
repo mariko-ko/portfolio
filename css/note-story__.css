@@ -1,0 +1,242 @@
+/* ==========================================================================
+   note-style Content Extensions & Navigation
+   ========================================================================== */
+
+/* note文章用の1カラムコンテナ（最大幅768px） */
+body {
+  background-color: #FFFFFF !important;
+}
+.note-article {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+@media (min-width: 768px) {
+  .note-article {
+    padding: 64px 0; /* 左右の余白をなくし、768px幅いっぱいにすっきり見せる場合は0にします */
+  }
+}
+
+/* 記事ヘッダー */
+.note-header {
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 32px;
+}
+
+.note-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--primary-text);
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .note-title {
+    font-size: 2.125rem;
+  }
+}
+
+.note-subtitle {
+  font-size: 1.05rem;
+  color: var(--secondary-text);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.note-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-info .author-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--primary-text);
+}
+
+.note-eyecatch {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.note-eyecatch img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* 記事本文スタイル */
+.note-body {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #24292F;
+}
+
+.story-chapter {
+  margin-bottom: 48px;
+}
+
+.chapter-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 24px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--primary-text);
+  color: var(--primary-text);
+}
+
+.note-body h3.chapter-title {
+  font-size: 1.2rem;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-top: 36px;
+  margin-bottom: 16px;
+}
+
+.note-body p {
+  margin-bottom: 20px;
+}
+
+.note-body ul {
+  padding-left: 1.5em;
+  margin-bottom: 20px;
+  color: var(--secondary-text);
+}
+
+.note-body li {
+  margin-bottom: 8px;
+}
+
+.note-divider {
+  border: none;
+  border-top: 1px dashed var(--card-border);
+  margin: 48px 0;
+}
+
+/* コールアウト（ミニコラム用） */
+.note-callout {
+  margin: 32px 0;
+  padding: 24px;
+  background-color: var(--tag-bg);
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+}
+
+.callout-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--primary-text);
+}
+
+.note-callout p {
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  color: var(--secondary-text);
+}
+.note-callout p:last-child {
+  margin-bottom: 0;
+}
+
+/* 単体画像・図版ラッパー */
+.note-figure-wrapper {
+  margin: 32px 0;
+}
+
+.article-single-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+}
+
+.article-img-caption {
+  font-size: 0.85rem;
+  color: var(--secondary-text);
+  text-align: left;
+  margin-top: 8px;
+}
+
+/* ==========================================================================
+   Next / Prev Article Navigation (カード風ナビゲーション)
+   ========================================================================== */
+.next-article-nav, .prev-article-nav {
+  margin-top: 56px;
+  margin-bottom: 32px;
+}
+
+.next-article-card, .prev-article-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.next-article-card:hover, .prev-article-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -4px rgba(0,0,0,0.08);
+  border-color: var(--primary-text);
+}
+
+.next-article-content, .prev-article-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.next-article-label, .prev-article-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--secondary-text);
+}
+
+.next-article-title, .prev-article-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-text);
+  line-height: 1.4;
+}
+
+.next-article-arrow, .prev-article-arrow {
+  flex-shrink: 0;
+  color: var(--secondary-text);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.next-article-card:hover .next-article-arrow {
+  transform: translateX(4px);
+  color: var(--primary-text);
+}
+
+.prev-article-card:hover .prev-article-arrow {
+  transform: translateX(-4px);
+  color: var(--primary-text);
+}
+
+@media (max-width: 768px) {
+  .next-article-card, .prev-article-card {
+    padding: 18px 16px;
+  }
+  .next-article-title, .prev-article-title {
+    font-size: 0.95rem;
+  }
+}

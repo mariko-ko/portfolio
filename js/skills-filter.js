@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (tagsParam) {
       tagsParam.split(',').forEach((t) => {
         const norm = normalizeTag(decodeURIComponent(t));
-        if (norm && !tags.includes(norm)) tags.push(norm);
+        if (norm && !tags.includes(norm) && norm.toLowerCase() !== 'all') tags.push(norm);
       });
     }
 
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     allTagParams.forEach((item) => {
       item.split(',').forEach((t) => {
         const norm = normalizeTag(decodeURIComponent(t));
-        if (norm && !tags.includes(norm)) tags.push(norm);
+        if (norm && !tags.includes(norm) && norm.toLowerCase() !== 'all') tags.push(norm);
       });
     });
 
