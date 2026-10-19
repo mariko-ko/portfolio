@@ -445,6 +445,20 @@ details[open] summary::after { content: '−'; }
 .case-text li { margin-bottom: 12px; }
 .case-text li strong { color: var(--primary-text); }
 
+/* Text Link within Case Study (URL / External Links) */
+.case-text a:not(.tag):not(.tag-link):not(.project-context-link) {
+  color: #3366cc;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  word-break: break-all;
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+.case-text a:not(.tag):not(.tag-link):not(.project-context-link):hover {
+  color: #254e9e;
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
 /* Bento Grid */
 .bento-grid {
   display: grid;
@@ -503,6 +517,30 @@ details[open] summary::after { content: '−'; }
 }
 .bento-grid[data-count="6"] .bento-img:not(:nth-child(1)):not(:nth-child(4)) {
   aspect-ratio: 1/1;
+}
+
+/* Vertical LP / Tall Mobile Thumbnails (縦横比率 9:1 / 横1:縦9) */
+.bento-grid[data-variant="lp"] .bento-img,
+.bento-grid[data-type="lp"] .bento-img,
+.bento-grid[data-layout="lp"] .bento-img,
+.bento-grid[data-ratio="1:9"] .bento-img,
+.bento-grid[data-ratio="9:1"] .bento-img,
+.bento-grid[data-count="2-lp"] .bento-img,
+.bento-grid.is-lp .bento-img,
+.bento-grid--lp .bento-img,
+.bento-grid .bento-img.is-lp {
+  aspect-ratio: var(--bento-aspect-ratio, 1 / 9);
+  object-fit: cover;
+  object-position: top;
+}
+
+/* Standard Mobile Screen (縦横比 9:16 / スマホ1画面分) */
+.bento-grid[data-variant="mobile"] .bento-img,
+.bento-grid[data-ratio="9:16"] .bento-img,
+.bento-grid.is-mobile .bento-img {
+  aspect-ratio: var(--bento-aspect-ratio, 9 / 16);
+  object-fit: cover;
+  object-position: top;
 }
 
 .gallery-caption {
