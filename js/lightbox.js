@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentIndex = 0;
 
   // Initialize galleries
-  const galleries = document.querySelectorAll('.bento-grid');
+  const galleries = document.querySelectorAll('.bento-grid, [data-lightbox-gallery]');
   
   galleries.forEach((gallery) => {
-    const images = Array.from(gallery.querySelectorAll('.bento-img'));
+    const images = Array.from(gallery.querySelectorAll('.bento-img, img'));
     
     images.forEach((img, index) => {
       img.addEventListener('click', () => {

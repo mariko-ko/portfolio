@@ -163,6 +163,41 @@ a.tag:hover, button.tag:hover, .tag-link:hover {
   flex-shrink: 0;
 }
 .profile-intro-text { display: flex; flex-direction: column; }
+.profile-links {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.profile-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  color: var(--primary-text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+.profile-link-btn:hover {
+  background-color: #F9FAFB;
+  border-color: #D1D5DB;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+.profile-link-btn .arrow-icon {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+.profile-link-btn:hover .arrow-icon {
+  transform: translateX(3px);
+}
 
 /* ---------------- Home Featured Sections ---------------- */
 .home-feature-section {
@@ -577,8 +612,8 @@ body[data-modal-enabled="false"] .bento-img {
   width: 100vw;
   height: 100vh;
   box-sizing: border-box;
-  padding: 64px 24px 48px;
-  background-color: rgba(17, 24, 39, 0.88);
+  padding: 64px 80px 48px;
+  background-color: rgba(17, 24, 39, 0.92);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 9999;
@@ -624,17 +659,18 @@ body[data-modal-enabled="false"] .bento-img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: auto 0;
-  max-width: 100%;
+  margin: 0 auto;
+  width: 100%;
+  max-width: min(1280px, 100%);
 }
 
 .lightbox-img {
-  width: auto;
-  max-width: min(860px, 90vw);
+  width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
   border-radius: 6px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
 }
 
 /* Caption */
@@ -644,7 +680,8 @@ body[data-modal-enabled="false"] .bento-img {
   font-size: 0.95rem;
   line-height: 1.5;
   text-align: center;
-  max-width: min(860px, 90vw);
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Controls */
@@ -709,11 +746,17 @@ body[data-modal-enabled="false"] .bento-img {
   .lightbox-modal {
     padding: 56px 12px 36px;
   }
+  .lightbox-content {
+    width: 100%;
+    max-width: 100%;
+  }
   .lightbox-img {
-    max-width: 94vw;
+    width: 100%;
+    max-width: 100%;
   }
   .lightbox-caption {
-    max-width: 94vw;
+    width: 100%;
+    max-width: 100%;
     font-size: 0.85rem;
     margin-top: 12px;
   }
@@ -723,8 +766,8 @@ body[data-modal-enabled="false"] .bento-img {
     font-size: 1.2rem;
     background: rgba(0, 0, 0, 0.6);
   }
-  .lightbox-prev { left: 10px; }
-  .lightbox-next { right: 10px; }
+  .lightbox-prev { left: 8px; }
+  .lightbox-next { right: 8px; }
   .lightbox-close {
     top: 12px;
     right: 12px;
