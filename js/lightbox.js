@@ -3,11 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Modal Markup
   const modalHTML = `
     <div class="lightbox-modal" id="lightbox-modal">
-      <button class="lightbox-close" id="lightbox-close">&times;</button>
-      <button class="lightbox-prev" id="lightbox-prev">&#8592;</button>
-      <button class="lightbox-next" id="lightbox-next">&#8594;</button>
+      <button class="lightbox-close" id="lightbox-close" aria-label="閉じる">&times;</button>
+      <button class="lightbox-prev" id="lightbox-prev" aria-label="前へ">&#8592;</button>
+      <button class="lightbox-next" id="lightbox-next" aria-label="次へ">&#8594;</button>
       <div class="lightbox-content">
-        <img src="" alt="" class="lightbox-img" id="lightbox-img">
+        <img src="" alt="" class="lightbox-img" id="lightbox-img" style="display: none;">
+        <video src="" class="lightbox-video" id="lightbox-video" controls playsinline style="display: none;"></video>
         <div class="lightbox-caption" id="lightbox-caption"></div>
       </div>
     </div>
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const modal = document.getElementById('lightbox-modal');
   const modalImg = document.getElementById('lightbox-img');
+  const modalVideo = document.getElementById('lightbox-video');
   const modalCaption = document.getElementById('lightbox-caption');
   const closeBtn = document.getElementById('lightbox-close');
   const prevBtn = document.getElementById('lightbox-prev');
@@ -28,27 +30,106 @@ document.addEventListener('DOMContentLoaded', () => {
   const galleries = document.querySelectorAll('.bento-grid, [data-lightbox-gallery]');
   
   galleries.forEach((gallery) => {
-    const images = Array.from(gallery.querySelectorAll('.bento-img, img'));
+    // Collect all media triggers: .bento-video-wrap, .bento-img, img, video
+    // Filter out images/videos inside .bento-video-wrap to avoid duplicate items
+    const rawItems = Array.from(gallery.querySelectorAll('.bento-video-wrap, .bento-img, img, video'));
     
-    images.forEach((img, index) => {
-      img.addEventListener('click', () => {
+    const items = [];
+    rawItems.forEach((el) => {
+      // If element is inside a .bento-video-wrap, ignore it (wrap itself is the trigger)
+      if (el.closest('.bento-video-wrap') && !el.classList.contains('bento-video-wrap')) {
+        return;
+      }
+      if (!items.includes(el)) {
+        items.push(el);
+      }
+    });
+
+    items.forEach((item, index) => {
+      // Find the actual media element (img or video)
+      const mediaEl = item.classList.contains('bento-video-wrap') ? item.querySelector('video, img') : item;
+
+      // If it has a video in thumbnail, add hover preview behavior
+      if (mediaEl && mediaEl.tagName.toLowerCase() === 'video') {
+        item.addEventListener('mouseenter', () => {
+          if (!modal.classList.contains('is-open')) {
+            mediaEl.play().catch(() => {});
+          }
+        });
+        item.addEventListener('mouseleave', () => {
+          mediaEl.pause();
+          mediaEl.currentTime = 0.001;
+        });
+      }
+
+      item.addEventListener('click', (e) => {
+        // Prevent default navigation / inline play
+        e.preventDefault();
+
         // スイッチ判定: "false" の場合は処理を中断
         if (document.body.getAttribute('data-modal-enabled') === 'false') {
           return;
         }
         
-        currentGallery = images;
+        currentGallery = items;
         currentIndex = index;
         openModal();
       });
     });
   });
 
+  function stopVideo() {
+    if (modalVideo) {
+      modalVideo.pause();
+      modalVideo.removeAttribute('src');
+      modalVideo.load();
+    }
+  }
+
   function updateModal() {
-    const img = currentGallery[currentIndex];
-    modalImg.src = img.src;
-    const altText = img.alt || '画像';
-    modalCaption.textContent = `${currentIndex + 1} / ${currentGallery.length} - ${altText}`;
+    const item = currentGallery[currentIndex];
+    if (!item) return;
+
+    // Resolve inner media element if wrapped
+    const mediaEl = item.classList.contains('bento-video-wrap') ? item.querySelector('video, img') : item;
+    if (!mediaEl) return;
+
+    const tagName = mediaEl.tagName.toLowerCase();
+    const isVideo = tagName === 'video' ||
+                    mediaEl.dataset.videoSrc ||
+                    (mediaEl.src && mediaEl.src.match(/\.(mp4|mov|webm)(\?|#|$)/i));
+
+    stopVideo();
+
+    if (isVideo) {
+      modalImg.style.display = 'none';
+      modalImg.removeAttribute('src');
+
+      modalVideo.style.display = 'block';
+      const rawSrc = mediaEl.dataset.videoSrc || mediaEl.currentSrc || mediaEl.src;
+      // Remove hash like #t=0.001 so it plays from 0s in modal
+      const cleanSrc = rawSrc ? rawSrc.replace(/#t=[\d.]+/, '') : '';
+      modalVideo.src = cleanSrc;
+      modalVideo.load();
+
+      const playPromise = modalVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // Autoplay may be restricted without user gesture/sound permissions
+        });
+      }
+
+      const altText = mediaEl.getAttribute('alt') || mediaEl.getAttribute('aria-label') || '動画';
+      modalCaption.textContent = `${currentIndex + 1} / ${currentGallery.length} - ${altText}`;
+    } else {
+      modalVideo.style.display = 'none';
+
+      modalImg.style.display = 'block';
+      modalImg.src = mediaEl.src;
+      const altText = mediaEl.alt || '画像';
+      modalCaption.textContent = `${currentIndex + 1} / ${currentGallery.length} - ${altText}`;
+    }
+
     modal.scrollTop = 0;
   }
 
@@ -62,6 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeModal() {
     modal.classList.remove('is-open');
     document.body.style.overflow = '';
+    stopVideo();
   }
 
   function nextImage() {
